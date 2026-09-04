@@ -82,13 +82,13 @@ lib/
 ### Clone o projeto
 
 ```bash
-git clone https://github.com/rodrigoplotze/calculadora-imc.git
+git clone https://github.com/rodrigoplotze/flutter_calculadora_imc
 ```
 
 ### Acesse a pasta
 
 ```bash
-cd calculadora-imc
+cd flutter_calculadora_imc
 ```
 
 ### Instale as dependências
