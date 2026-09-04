@@ -63,6 +63,88 @@ IMC = 24,49
 - Material Design 3
 
 ---
+### Gerenciamento de Estado
+
+O gerenciamento de estado é realizado através do **ChangeNotifier**, permitindo que a interface seja notificada sempre que ocorrerem alterações nos dados da aplicação.
+
+Principais benefícios:
+
+- Separação entre interface e regras de negócio
+- Atualização automática da UI
+- Código mais organizado e reutilizável
+- Facilidade para testes e manutenção
+
+Exemplo simplificado:
+
+```dart
+class CalculadoraController extends ChangeNotifier {
+  double _imc = 0;
+
+  double get imc => _imc;
+
+  void calcular(double peso, double altura) {
+    _imc = peso / (altura * altura);
+    notifyListeners();
+  }
+}
+```
+
+---
+
+### Injeção de Dependência com GetIt
+
+Para gerenciamento das dependências foi utilizado o pacote **GetIt**, permitindo acesso centralizado aos serviços e controladores da aplicação.
+
+Registro da dependência:
+
+```dart
+final getIt = GetIt.instance;
+
+void setupDependencies() {
+  getIt.registerLazySingleton<CalculadoraController>(
+    () => CalculadoraController(),
+  );
+}
+```
+
+Utilização:
+
+```dart
+final controller = GetIt.I<CalculadoraController>();
+```
+
+Benefícios:
+
+- Redução de acoplamento
+- Maior reutilização de componentes
+- Facilidade na substituição de implementações
+- Melhor organização do projeto
+
+---
+
+### Fluxo da Aplicação
+
+```text
+Usuário
+   │
+   ▼
+CalculadoraView
+   │
+   ▼
+CalculadoraController (ChangeNotifier)
+   │
+   ▼
+Cálculo do IMC
+   │
+   ▼
+notifyListeners()
+   │
+   ▼
+Atualização automática da Interface
+```
+
+---
+
 
 ## 📂 Estrutura do Projeto
 
