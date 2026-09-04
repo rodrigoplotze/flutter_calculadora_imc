@@ -147,6 +147,6 @@ Este projeto está licenciado sob a licença MIT.
 
 ## 👨‍💻 Autor
 
-**Rodrigo de Oliveira Plotze**
+**Rodrigo Plotze**
 
 GitHub: https://github.com/rodrigoplotze
